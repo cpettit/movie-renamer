@@ -12,6 +12,9 @@ var fs = require('fs'),
 var imdbUrl = 'http://www.imdb.com/find?q=';
 var resultSelector = '.findList .result_text';
 var movieExt = '.mkv';
+if(process.argv.length > 3){
+	movieExt = process.argv[3];
+}
 
 // global
 var ui = new inquirer.ui.BottomBar();
@@ -20,6 +23,8 @@ var progress = {
   total: 0,
   current: 0
 };
+
+
 
 function main() { 
   var processedFiles = [];
